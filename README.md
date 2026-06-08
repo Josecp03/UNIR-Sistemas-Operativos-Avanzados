@@ -17,13 +17,20 @@ Este repositorio esta pensado para practicar los ejercicios de Sistemas Operativ
 
 ## Ejercicios incluidos
 
-1. `01-menu-info-sistema`: menu de informacion del sistema Linux.
-2. `02-calificar-nota`: clasificar una nota numerica.
-3. `03-usuarios-menu`: comprobar existencia de usuario y consultar UID.
+Ordenados por nivel de dificultad (1 = más fácil, 12 = más difícil):
+
+1. `01-calificar-nota`: clasificar una nota numerica (if-else simple).
+2. `02-ficheros-por-uid`: buscar ficheros por UID propietario (find basico).
+3. `03-listar-ficheros`: listar nombre, tamano y fecha de modificacion.
 4. `04-contar-directorio`: contar ficheros, subdirectorios y ejecutables.
-5. `05-listar-ficheros`: listar nombre, tamano y fecha de modificacion.
-6. `06-ficheros-por-tamano`: buscar ficheros por intervalo de tamano.
-7. `07-ficheros-por-uid`: buscar ficheros por UID propietario.
+5. `05-ficheros-por-tamano`: buscar ficheros por intervalo de tamano.
+6. `06-clasificacion-notas`: clasificar notas con multiples categorias.
+7. `07-usuarios-menu`: menu interactivo para comprobar usuarios y UIDs.
+8. `08-analizar-directorio`: analizar contenido de directorios (recursivo).
+9. `09-gestion-usuarios`: menu avanzado de gestion de usuarios.
+10. `10-monitorear-usuarios`: monitorear directorios con umbrales y acciones.
+11. `11-tabla-productos`: procesar tabla de ventas con sumas y calculos.
+12. `12-menu-info-sistema`: menu complejo de informacion del sistema Linux.
 
 ## Comandos utiles
 
