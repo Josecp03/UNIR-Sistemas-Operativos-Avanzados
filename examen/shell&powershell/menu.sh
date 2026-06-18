@@ -61,6 +61,20 @@ CopyFiles() {
     fi
 }
 
+ResumenDirectorio() {
+    directorio="$1"
+
+    if [ ! -d "$directorio" ]; then
+        echo "Error. El directorio no existe."
+    else
+        archivos=$(find "$directorio" -type f | wc -l)
+        subdirectorios=$(find "$directorio" -type d | wc -l)
+        ejecutables=$(find "$directorio" -type f -executable | wc -l)
+        echo "En el directorio $directorio hay un total de $archivos archivos, $subdirectorios subdirectorios y $ejecutables ejecutables"
+    fi
+
+}
+
 opcion=-1
 
 while [ "$opcion" != "0" ]; do
@@ -71,6 +85,7 @@ while [ "$opcion" != "0" ]; do
     echo "5) Obtener el numero de usuarios conectados desde la ultima vez que se pregunto"
     echo "6) Mostrar ultimas 5 lineas de un fichero"
     echo "7) Copiar archivos .sh y .c de un directorio a otro"
+    echo "8) Resumir los elementos de un directorio"
     echo "0) Salir"
 
     read -p "Introduzca la opcion: " opcion
@@ -111,6 +126,10 @@ while [ "$opcion" != "0" ]; do
             read -p "Introduzca el directorio origen: " origen
             read -p "Introduzca el directorio destino: " destino
             CopyFiles "$origen" "$destino"
+            ;;
+        8)
+            read -p "Introduzca el nombre del directorio: " directorio
+            ResumenDirectorio "$directorio"
             ;;
 
         *)
