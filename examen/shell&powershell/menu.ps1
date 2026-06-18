@@ -69,6 +69,18 @@ function CopyFiles {
 
 }
 
+function ResumenDirectorio {
+    param(
+        [string]$directorio
+    )
+
+    $archivos = (Get-ChildItem $directorio -Recurse -File).Count
+    $subdirectorios = (Get-ChildItem $directorio -Recurse -Directory).Count
+    $ejecutables = (Get-ChildItem $directorio -Recurse -File | Where-Object {$_.Extension -in ".exe", ".bat", ".cmd", ".ps1"}).Count
+
+    Write-Host "En el directorio $directorio hay un total de $archivos archivos, $subdirectorios subdirectorios y $ejecutables ejecutables"
+}
+
 do{
     Write-Host "1) Obtener el espacio libre de disco"
     Write-Host "2) Obtener el tamanio ocupado de un directorio"
@@ -77,6 +89,7 @@ do{
     Write-Host "5) Obtener el numero de usuarios conectados desde la ultima vez que se pregunto"
     Write-Host "6) Mostrar ultimas 5 lineas de un fichero"
     Write-Host "7) Copiar archivos .sh y .c de un directorio a otro"
+    Write-Host "8) Resumir los elementos de un directorio"
     Write-Host "0) Salir"
     $opcion=Read-Host "Introduzca la opcion"
     Write-Host "Se ha escogido la opcion numero $opcion"    
@@ -117,6 +130,11 @@ do{
             $origen=Read-Host "Introduzca el directorio origen: "
             $destino=Read-Host "Introduzca el directorio destino: "
             CopyFiles -origen $origen -destino $destino
+        }
+
+        8{
+            $directorio=Read-Host "Introduzca el nombre del directorio: "
+            ResumenDirectorio -directorio $directorio
         }
 
         default{
